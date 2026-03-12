@@ -1,21 +1,35 @@
+from random import choice
 from player import Player
 from dice import Dice
 
-def play_uc2():
+def main():
 
-    #UC1 initialize player
-    user = Player()
-    print(f"Game Started. Player position: {user.position}")
+    #uc1
+    player1 = Player()
 
-    #UC2 :Roll the die 
+    options = ("NoPlay" , "Ladder" , "Snake")
 
-    roll_value = Dice.roll()
-    print(f"Die Rolled: {roll_value}")
+    #Uc2 roll the die
+    roll = Dice.roll()
+
+    #UC3: check for Option
+    option = choice(options)
+    print(f"Rolled: {roll} | option: {option}")
+
+    match option:
+        case "NoPlay":
+            pass
+        case "Ladder":
+            player1.position += roll
+        case "Snake":
+            player1.position -= roll
+
+            if(player1.position < 0):
+                player1.position = 0
+
+    print(f"Current Position: {player1.position}")
 
 
-    user.position += roll_value
-    print(f"Player moved to: {user.positon}")
+if __name__ == "__main__":    
+    main()
 
-
-    if __name__ == "__main__":
-        play_uc2()
