@@ -25,8 +25,10 @@ def main():
         match action :
             case "NoPlay":
                 pass
-            case "Ladder" :
+            case "Ladder"  if player1.position +roll <= WINNING_POSITION :
                 player1.position += roll
+            case "Ladder":
+                pass
             case "Snake":
                 player1.position = max(0 , player1.position-roll)
 
