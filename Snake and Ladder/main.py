@@ -27,12 +27,14 @@ def main():
                 pass
             case "Ladder"  if player1.position +roll <= WINNING_POSITION :
                 player1.position += roll
+                print(f"Roll {roll_count} : Die({roll}) | Action: {action:7} | Position : {player1.position}")
             case "Ladder":
                 pass
+                print(f"Roll {roll_count} : Die({roll}) | Action: {action:7} | Position : {player1.position}")
             case "Snake":
                 player1.position = max(0 , player1.position-roll)
+                print(f"Roll {roll_count} : Die({roll}) | Action: {action:7} | Position : {player1.position}")
 
-    print(f"Roll {roll_count} : Die({roll}) | Action: {action:7} | Position : {player1.position}")
 
     print("-" * 40)
     print(f"WINNER! You reached {player1.position} in {roll_count} rolls.")
